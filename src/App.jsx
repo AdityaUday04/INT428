@@ -6,7 +6,7 @@ import './index.css';
 import './components.css';
 import './chat.css';
 
-const API_URL = 'http://localhost:3001/api/chat';
+const API_URL = import.meta.env.PROD ? '/api/chat' : 'http://localhost:3001/api/chat';
 
 const INITIAL_QUICK_REPLIES = [
   '🌹 Floral', '🪵 Woody', '🍊 Citrus',
