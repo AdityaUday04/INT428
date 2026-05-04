@@ -92,9 +92,7 @@ export default function App() {
       console.error('Error:', err);
       const errorMsg = {
         role: 'assistant',
-        content: err.message.includes('rate limit') 
-          ? `🌸 ${err.message}` 
-          : 'I apologize, but I\'m having trouble connecting right now. Please try again in a moment. 🌸',
+        content: `I apologize, but I encountered an error: **${err.message}**. Please try again. 🌸`,
         timestamp: Date.now(),
       };
       setMessages(prev => [...prev, errorMsg]);
@@ -130,9 +128,7 @@ export default function App() {
       console.error('Error:', err);
       setMessages([{
         role: 'assistant',
-        content: err.message.includes('rate limit')
-          ? `Welcome to Aura! ✨ I'm your personal fragrance consultant. \n\n${err.message}`
-          : 'Welcome to Aura! ✨ I\'m your personal fragrance consultant. I\'m having a brief connection issue, but please tell me — what kind of scent are you looking for today?',
+        content: `Welcome to Aura! ✨ I'm your personal fragrance consultant. \n\nI apologize, but I encountered an error connecting: **${err.message}**. Please refresh to try again.`,
         timestamp: Date.now(),
       }]);
     } finally {
